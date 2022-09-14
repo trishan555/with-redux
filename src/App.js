@@ -13,7 +13,6 @@ function App() {
 
     return (
         <div className='App'>
-            {' '}
             <div className='addUser'>
                 <input
                     type='text'
@@ -40,7 +39,6 @@ function App() {
                         )
                     }}
                 >
-                    {' '}
                     Add User
                 </button>
             </div>
@@ -67,7 +65,6 @@ function App() {
                                     )
                                 }}
                             >
-                                {' '}
                                 Update Username
                             </button>
                             <button
