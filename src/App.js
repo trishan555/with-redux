@@ -33,8 +33,8 @@ function App() {
                         dispatch(
                             addUser({
                                 id: userList[userList.length - 1].id + 1,
-                                name,
-                                username,
+                                name: name,
+                                username: username,
                             })
                         )
                     }}
