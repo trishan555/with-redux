@@ -1,22 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { UsersData } from '../data'
 
-const initialState = {
-    value: 0,
-    status: 'idle',
-}
-
 export const userSlice = createSlice({
     name: 'users',
-    initialState,
-    reducers: {},
+    initialState: { value: UsersData },
+    reducers: {
+        addUser: (state, action) => {
+            state.value.push(action.payload)
+        },
+
+        deleteUser: (state, action) => {
+            state.value = state.value.filter(
+                (user) => user.id !== action.payload.id
+            )
+        },
+
+        updateUsername: (state, action) => {
+            state.value.map((user) => {
+                if (user.id === action.payload.id) {
+                    user.username = action.payload.username
+                }
+            })
+        },
+    },
 })
 
-export const { increment, decrement, incrementByAmount } = userSlice.actions
-
-// The function below is called a selector and allows us to select a value from
-// the state. Selectors can also be defined inline where they're used instead of
-// in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectCount = (state) => state.counter.value
-
+export const { addUser, deleteUser, updateUsername } = userSlice.actions
 export default userSlice.reducer
